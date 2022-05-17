@@ -1,0 +1,35 @@
+                                                               QUERY PLAN                                                                
+-----------------------------------------------------------------------------------------------------------------------------------------
+ Limit
+   ->  Sort
+         Sort Key: nation.n_name, (EXTRACT(year FROM orders.o_orderdate)) DESC
+         ->  HashAggregate
+               Group Key: nation.n_name, EXTRACT(year FROM orders.o_orderdate)
+               ->  Nested Loop
+                     ->  Merge Join
+                           Merge Cond: (orders.o_orderkey = lineitem.l_orderkey)
+                           ->  Index Scan using orders_pkey on orders
+                           ->  Materialize
+                                 ->  Sort
+                                       Sort Key: lineitem.l_orderkey
+                                       ->  Nested Loop
+                                             Join Filter: (supplier.s_suppkey = lineitem.l_suppkey)
+                                             ->  Hash Join
+                                                   Hash Cond: (partsupp.ps_suppkey = supplier.s_suppkey)
+                                                   ->  Hash Join
+                                                         Hash Cond: (partsupp.ps_partkey = part.p_partkey)
+                                                         ->  Seq Scan on partsupp
+                                                         ->  Hash
+                                                               ->  Seq Scan on part
+                                                                     Filter: ((p_name)::text ~~ '%navy%'::text)
+                                                   ->  Hash
+                                                         ->  Seq Scan on supplier
+                                             ->  Index Scan using idx_lineitem_part_supp on lineitem
+                                                   Index Cond: ((l_partkey = partsupp.ps_partkey) AND (l_suppkey = partsupp.ps_suppkey))
+                     ->  Memoize
+                           Cache Key: supplier.s_nationkey
+                           Cache Mode: logical
+                           ->  Index Scan using nation_pkey on nation
+                                 Index Cond: (n_nationkey = supplier.s_nationkey)
+(31 rows)
+
