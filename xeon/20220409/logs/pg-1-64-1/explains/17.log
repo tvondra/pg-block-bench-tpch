@@ -1,0 +1,21 @@
+                                                  QUERY PLAN                                                   
+---------------------------------------------------------------------------------------------------------------
+ Limit
+   ->  Aggregate
+         ->  Nested Loop
+               Join Filter: (lineitem.l_quantity < ((0.2 * avg(lineitem_1.l_quantity))))
+               ->  Hash Join
+                     Hash Cond: (lineitem_1.l_partkey = part.p_partkey)
+                     ->  HashAggregate
+                           Group Key: lineitem_1.l_partkey
+                           ->  Seq Scan on lineitem lineitem_1
+                     ->  Hash
+                           ->  Seq Scan on part
+                                 Filter: ((p_brand = 'Brand#22'::bpchar) AND (p_container = 'LG BOX'::bpchar))
+               ->  Memoize
+                     Cache Key: part.p_partkey
+                     Cache Mode: logical
+                     ->  Index Scan using idx_lineitem_part_supp on lineitem
+                           Index Cond: (l_partkey = part.p_partkey)
+(17 rows)
+
