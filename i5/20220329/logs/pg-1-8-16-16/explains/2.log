@@ -1,0 +1,47 @@
+                                                QUERY PLAN                                                
+----------------------------------------------------------------------------------------------------------
+ Limit
+   ->  Sort
+         Sort Key: supplier.s_acctbal DESC, nation.n_name, supplier.s_name, part.p_partkey
+         ->  Merge Join
+               Merge Cond: (partsupp.ps_partkey = part.p_partkey)
+               Join Filter: (partsupp.ps_supplycost = (SubPlan 1))
+               ->  Nested Loop
+                     Join Filter: (nation.n_regionkey = region.r_regionkey)
+                     ->  Nested Loop
+                           ->  Nested Loop
+                                 ->  Index Scan using idx_partsupp_partkey on partsupp
+                                 ->  Memoize
+                                       Cache Key: partsupp.ps_suppkey
+                                       Cache Mode: logical
+                                       ->  Index Scan using supplier_pkey on supplier
+                                             Index Cond: (s_suppkey = partsupp.ps_suppkey)
+                           ->  Memoize
+                                 Cache Key: supplier.s_nationkey
+                                 Cache Mode: logical
+                                 ->  Index Scan using nation_pkey on nation
+                                       Index Cond: (n_nationkey = supplier.s_nationkey)
+                     ->  Materialize
+                           ->  Seq Scan on region
+                                 Filter: (r_name = 'AMERICA'::bpchar)
+               ->  Sort
+                     Sort Key: part.p_partkey
+                     ->  Seq Scan on part
+                           Filter: (((p_type)::text ~~ '%NICKEL'::text) AND (p_size = 16))
+               SubPlan 1
+                 ->  Aggregate
+                       ->  Nested Loop
+                             Join Filter: (nation_1.n_regionkey = region_1.r_regionkey)
+                             ->  Seq Scan on region region_1
+                                   Filter: (r_name = 'AMERICA'::bpchar)
+                             ->  Hash Join
+                                   Hash Cond: (supplier_1.s_nationkey = nation_1.n_nationkey)
+                                   ->  Nested Loop
+                                         ->  Index Scan using idx_partsupp_partkey on partsupp partsupp_1
+                                               Index Cond: (ps_partkey = part.p_partkey)
+                                         ->  Index Scan using supplier_pkey on supplier supplier_1
+                                               Index Cond: (s_suppkey = partsupp_1.ps_suppkey)
+                                   ->  Hash
+                                         ->  Seq Scan on nation nation_1
+(43 rows)
+
