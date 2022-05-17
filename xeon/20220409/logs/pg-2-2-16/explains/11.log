@@ -1,0 +1,34 @@
+                                          QUERY PLAN                                          
+----------------------------------------------------------------------------------------------
+ Limit
+   InitPlan 1 (returns $2)
+     ->  Aggregate
+           ->  Nested Loop
+                 ->  Nested Loop
+                       ->  Seq Scan on nation nation_1
+                             Filter: (n_name = 'SAUDI ARABIA'::bpchar)
+                       ->  Bitmap Heap Scan on supplier supplier_1
+                             Recheck Cond: (s_nationkey = nation_1.n_nationkey)
+                             ->  Bitmap Index Scan on idx_supplier_nation_key
+                                   Index Cond: (s_nationkey = nation_1.n_nationkey)
+                 ->  Index Scan using idx_partsupp_suppkey on partsupp partsupp_1
+                       Index Cond: (ps_suppkey = supplier_1.s_suppkey)
+   ->  Sort
+         Sort Key: (sum((partsupp.ps_supplycost * (partsupp.ps_availqty)::numeric))) DESC
+         ->  GroupAggregate
+               Group Key: partsupp.ps_partkey
+               Filter: (sum((partsupp.ps_supplycost * (partsupp.ps_availqty)::numeric)) > $2)
+               ->  Sort
+                     Sort Key: partsupp.ps_partkey
+                     ->  Nested Loop
+                           ->  Nested Loop
+                                 ->  Seq Scan on nation
+                                       Filter: (n_name = 'SAUDI ARABIA'::bpchar)
+                                 ->  Bitmap Heap Scan on supplier
+                                       Recheck Cond: (s_nationkey = nation.n_nationkey)
+                                       ->  Bitmap Index Scan on idx_supplier_nation_key
+                                             Index Cond: (s_nationkey = nation.n_nationkey)
+                           ->  Index Scan using idx_partsupp_suppkey on partsupp
+                                 Index Cond: (ps_suppkey = supplier.s_suppkey)
+(30 rows)
+
