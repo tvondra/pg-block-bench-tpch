@@ -79,6 +79,72 @@ EOF
 
 			mv *.plot *.eps *.data heatmaps/$m/$d/queries
 
+			for q in `seq 1 22`; do
+
+				data=query-$q-$wss
+
+				psql -t -A -F ' ' $DBNAME > $data-min.data <<EOF
+SELECT " 1", " 2", " 4", " 8", "16", "32" FROM crosstab('SELECT
+  lpad(wal_block::text,2) AS row_name,
+  lpad(data_block::text,2) as category,
+  query_time_min::int::text as value
+ FROM query_results
+WHERE run = ''$d'' AND machine = ''$m'' AND wal_segment = $wss AND query_id = ''$q''
+ORDER BY 1,2',
+'SELECT DISTINCT lpad(data_block::text,2) FROM query_results_agg ORDER BY 1'
+) AS ct(category text, " 1" text, " 2" text, " 4" text, " 8" text, "16" text, "32" text)
+EOF
+
+				psql -t -A -F ' ' $DBNAME > $data-max.data <<EOF
+SELECT " 1", " 2", " 4", " 8", "16", "32" FROM crosstab('SELECT
+  lpad(wal_block::text,2) AS row_name,
+  lpad(data_block::text,2) as category,
+  query_time_max::int::text as value
+ FROM query_results
+WHERE run = ''$d'' AND machine = ''$m'' AND wal_segment = $wss AND query_id = ''$q''
+ORDER BY 1,2',
+'SELECT DISTINCT lpad(data_block::text,2) FROM query_results_agg ORDER BY 1'
+) AS ct(category text, " 1" text, " 2" text, " 4" text, " 8" text, "16" text, "32" text)
+EOF
+
+				psql -t -A -F ' ' $DBNAME > $data-avg.data <<EOF
+SELECT " 1", " 2", " 4", " 8", "16", "32" FROM crosstab('SELECT
+  lpad(wal_block::text,2) AS row_name,
+  lpad(data_block::text,2) as category,
+  query_time_avg::int::text as value
+ FROM query_results
+WHERE run = ''$d'' AND machine = ''$m'' AND wal_segment = $wss AND query_id = ''$q''
+ORDER BY 1,2',
+'SELECT DISTINCT lpad(data_block::text,2) FROM query_results_agg ORDER BY 1'
+) AS ct(category text, " 1" text, " 2" text, " 4" text, " 8" text, "16" text, "32" text)
+EOF
+
+				psql -t -A -F ' ' $DBNAME > $data-plan.data <<EOF
+SELECT " 1", " 2", " 4", " 8", "16", "32" FROM crosstab('SELECT
+  lpad(wal_block::text,2) AS row_name,
+  lpad(data_block::text,2) as category,
+  dense_rank::text as value
+ FROM query_plans
+WHERE run = ''$d'' AND machine = ''$m'' AND wal_segment = $wss AND query_id = ''$q''
+ORDER BY 1,2',
+'SELECT DISTINCT lpad(data_block::text,2) FROM query_results_agg ORDER BY 1'
+) AS ct(category text, " 1" text, " 2" text, " 4" text, " 8" text, "16" text, "32" text)
+EOF
+
+				sed "s/DATAFILE/$data-min/g" heatmap.template | sed "s/TITLE/$data (min)/" > $data-min.plot
+				sed "s/DATAFILE/$data-max/g" heatmap.template | sed "s/TITLE/$data (max)/" > $data-max.plot
+				sed "s/DATAFILE/$data-avg/g" heatmap.template | sed "s/TITLE/$data (avg)/" > $data-avg.plot
+				sed "s/DATAFILE/$data-plan/g" heatmap-plans.template | sed "s/TITLE/$data (plan)/" > $data-plan.plot
+
+				gnuplot $data-min.plot
+				gnuplot $data-max.plot
+				gnuplot $data-avg.plot
+				gnuplot $data-plan.plot
+
+				mv *.plot *.eps *.data heatmaps/$m/$d/queries
+
+			done
+
 		done
 
 		for wss in `psql -t -A $DBNAME -c "select distinct wal_segment FROM data_load WHERE run = '$d' AND machine = '$m'"`; do

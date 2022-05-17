@@ -39,10 +39,26 @@ select
   query_id,
   avg(query_time) as query_time_avg,
   min(query_time) as query_time_min,
-  max(query_time) as query_time_max
+  max(query_time) as query_time_max,
+  min(plan_hash) as plan_hash
 from queries
 group by 1, 2, 3, 4, 5, 6, 7
 order by 1, 2, 3, 4, 5, 6, 7;
+
+create view query_plans as
+select
+  run,
+  machine,
+  data_segment,
+  wal_segment, 
+  data_block,
+  wal_block,
+  query_id,
+  plan_hash,
+  dense_rank() over (partition by run, machine, data_segment, wal_segment, query_id order by plan_hash)
+from queries
+group by 1, 2, 3, 4, 5, 6, 7, 8
+order by 1, 2, 3, 4, 5, 6, 7, 8;
 
 create view query_results_agg as
 select
