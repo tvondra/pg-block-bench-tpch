@@ -1,0 +1,25 @@
+                                                  QUERY PLAN                                                   
+---------------------------------------------------------------------------------------------------------------
+ Limit
+   ->  Sort
+         Sort Key: orders.o_totalprice DESC, orders.o_orderdate
+         ->  GroupAggregate
+               Group Key: customer.c_custkey, orders.o_orderkey
+               ->  Sort
+                     Sort Key: customer.c_custkey, orders.o_orderkey
+                     ->  Hash Join
+                           Hash Cond: (orders.o_custkey = customer.c_custkey)
+                           ->  Merge Join
+                                 Merge Cond: (lineitem.l_orderkey = orders.o_orderkey)
+                                 ->  Merge Join
+                                       Merge Cond: (lineitem.l_orderkey = lineitem_1.l_orderkey)
+                                       ->  Index Scan using idx_lineitem_orderkey on lineitem
+                                       ->  GroupAggregate
+                                             Group Key: lineitem_1.l_orderkey
+                                             Filter: (sum(lineitem_1.l_quantity) > '313'::numeric)
+                                             ->  Index Scan using idx_lineitem_orderkey on lineitem lineitem_1
+                                 ->  Index Scan using orders_pkey on orders
+                           ->  Hash
+                                 ->  Seq Scan on customer
+(21 rows)
+
