@@ -1,0 +1,31 @@
+                                                                QUERY PLAN                                                                
+------------------------------------------------------------------------------------------------------------------------------------------
+ Limit
+   ->  Sort
+         Sort Key: supplier.s_name
+         ->  Nested Loop Semi Join
+               Join Filter: (supplier.s_suppkey = lineitem.l_suppkey)
+               ->  Hash Join
+                     Hash Cond: (supplier.s_nationkey = nation.n_nationkey)
+                     ->  Seq Scan on supplier
+                     ->  Hash
+                           ->  Seq Scan on nation
+                                 Filter: (n_name = 'IRAQ'::bpchar)
+               ->  Materialize
+                     ->  Nested Loop
+                           ->  Hash Join
+                                 Hash Cond: (lineitem.l_partkey = part.p_partkey)
+                                 ->  HashAggregate
+                                       Group Key: lineitem.l_partkey, lineitem.l_suppkey
+                                       ->  Bitmap Heap Scan on lineitem
+                                             Recheck Cond: ((l_shipdate >= '1996-01-01'::date) AND (l_shipdate < '1997-01-01'::date))
+                                             ->  Bitmap Index Scan on idx_lineitem_shipdate
+                                                   Index Cond: ((l_shipdate >= '1996-01-01'::date) AND (l_shipdate < '1997-01-01'::date))
+                                 ->  Hash
+                                       ->  Seq Scan on part
+                                             Filter: ((p_name)::text ~~ 'olive%'::text)
+                           ->  Index Scan using partsupp_pkey on partsupp
+                                 Index Cond: ((ps_partkey = lineitem.l_partkey) AND (ps_suppkey = lineitem.l_suppkey))
+                                 Filter: ((ps_availqty)::numeric > ((0.5 * sum(lineitem.l_quantity))))
+(27 rows)
+
