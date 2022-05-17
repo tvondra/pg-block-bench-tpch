@@ -1,0 +1,18 @@
+                                                        QUERY PLAN                                                        
+--------------------------------------------------------------------------------------------------------------------------
+ Limit
+   ->  Sort
+         Sort Key: orders.o_orderpriority
+         ->  HashAggregate
+               Group Key: orders.o_orderpriority
+               ->  Hash Semi Join
+                     Hash Cond: (orders.o_orderkey = lineitem.l_orderkey)
+                     ->  Bitmap Heap Scan on orders
+                           Recheck Cond: ((o_orderdate >= '1993-12-01'::date) AND (o_orderdate < '1994-03-01'::date))
+                           ->  Bitmap Index Scan on idx_orders_orderdate
+                                 Index Cond: ((o_orderdate >= '1993-12-01'::date) AND (o_orderdate < '1994-03-01'::date))
+                     ->  Hash
+                           ->  Seq Scan on lineitem
+                                 Filter: (l_commitdate < l_receiptdate)
+(14 rows)
+
