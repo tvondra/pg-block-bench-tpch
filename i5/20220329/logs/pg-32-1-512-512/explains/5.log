@@ -1,0 +1,31 @@
+                                                              QUERY PLAN                                                              
+--------------------------------------------------------------------------------------------------------------------------------------
+ Limit
+   ->  Sort
+         Sort Key: (sum((lineitem.l_extendedprice * ('1'::numeric - lineitem.l_discount)))) DESC
+         ->  HashAggregate
+               Group Key: nation.n_name
+               ->  Hash Join
+                     Hash Cond: ((lineitem.l_suppkey = supplier.s_suppkey) AND (customer.c_nationkey = supplier.s_nationkey))
+                     ->  Nested Loop
+                           ->  Hash Join
+                                 Hash Cond: (orders.o_custkey = customer.c_custkey)
+                                 ->  Bitmap Heap Scan on orders
+                                       Recheck Cond: ((o_orderdate >= '1993-01-01'::date) AND (o_orderdate < '1994-01-01'::date))
+                                       ->  Bitmap Index Scan on idx_orders_orderdate
+                                             Index Cond: ((o_orderdate >= '1993-01-01'::date) AND (o_orderdate < '1994-01-01'::date))
+                                 ->  Hash
+                                       ->  Nested Loop
+                                             ->  Nested Loop
+                                                   Join Filter: (nation.n_regionkey = region.r_regionkey)
+                                                   ->  Seq Scan on region
+                                                         Filter: (r_name = 'AMERICA'::bpchar)
+                                                   ->  Seq Scan on nation
+                                             ->  Index Scan using idx_customer_nationkey on customer
+                                                   Index Cond: (c_nationkey = nation.n_nationkey)
+                           ->  Index Scan using idx_lineitem_orderkey on lineitem
+                                 Index Cond: (l_orderkey = orders.o_orderkey)
+                     ->  Hash
+                           ->  Seq Scan on supplier
+(27 rows)
+
