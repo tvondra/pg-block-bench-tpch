@@ -1,0 +1,710 @@
+2022-03-24 22:02:04.502 CET [25762] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 22:02:04.504 CET [25762] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 22:02:04.504 CET [25762] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 22:02:04.509 CET [25762] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 22:02:04.511 CET [25765] LOG:  database system was shut down at 2022-03-24 22:02:04 CET
+2022-03-24 22:02:04.512 CET [25762] LOG:  database system is ready to accept connections
+2022-03-24 22:02:04.611 CET [25763] LOG:  checkpoint starting: immediate force wait flush-all
+2022-03-24 22:02:04.617 CET [25763] LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.002 s, total=0.007 s; sync files=5, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 22:02:04.680 CET [25763] LOG:  checkpoint starting: immediate force wait
+2022-03-24 22:02:04.683 CET [25763] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.003 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB
+2022-03-24 22:03:36.745 CET [25796] LOG:  automatic vacuum of table "test.public.part": index scans: 0
+	pages: 0 removed, 10155 remain, 0 skipped due to pins, 0 skipped frozen
+	tuples: 0 removed, 2000000 remain, 0 are dead but not yet removable, oldest xmin: 735
+	index scan not needed: 0 pages from table (0.00% of total) had 0 dead item identifiers removed
+	avg read rate: 143.591 MB/s, avg write rate: 143.606 MB/s
+	buffer usage: 10719 hits, 9645 misses, 9646 dirtied
+	WAL usage: 10156 records, 0 full page images, 599333 bytes
+	system usage: CPU: user: 0.16 s, system: 0.11 s, elapsed: 2.09 s
+2022-03-24 22:03:37.296 CET [25796] LOG:  automatic analyze of table "test.public.part"
+	avg read rate: 548.265 MB/s, avg write rate: 0.397 MB/s
+	buffer usage: 752 hits, 9667 misses, 7 dirtied
+	system usage: CPU: user: 0.39 s, system: 0.05 s, elapsed: 0.55 s
+2022-03-24 22:03:37.627 CET [25796] LOG:  automatic analyze of table "test.public.supplier"
+	avg read rate: 4.039 MB/s, avg write rate: 0.000 MB/s
+	buffer usage: 560 hits, 38 misses, 0 dirtied
+	system usage: CPU: user: 0.27 s, system: 0.00 s, elapsed: 0.29 s
+2022-03-24 22:03:45.590 CET [25796] LOG:  automatic vacuum of table "test.public.partsupp": index scans: 0
+	pages: 0 removed, 43307 remain, 0 skipped due to pins, 0 skipped frozen
+	tuples: 0 removed, 8000000 remain, 0 are dead but not yet removable, oldest xmin: 735
+	index scan not needed: 0 pages from table (0.00% of total) had 0 dead item identifiers removed
+	avg read rate: 168.306 MB/s, avg write rate: 168.310 MB/s
+	buffer usage: 43831 hits, 42797 misses, 42798 dirtied
+	WAL usage: 43308 records, 0 full page images, 2555301 bytes
+	system usage: CPU: user: 0.65 s, system: 0.52 s, elapsed: 7.94 s
+2022-03-24 22:03:46.289 CET [25796] LOG:  automatic analyze of table "test.public.partsupp"
+	avg read rate: 1323.527 MB/s, avg write rate: 0.000 MB/s
+	buffer usage: 390 hits, 29647 misses, 0 dirtied
+	system usage: CPU: user: 0.28 s, system: 0.17 s, elapsed: 0.69 s
+2022-03-24 22:03:47.902 CET [25796] LOG:  automatic vacuum of table "test.public.customer": index scans: 0
+	pages: 0 removed, 8887 remain, 0 skipped due to pins, 0 skipped frozen
+	tuples: 0 removed, 1500000 remain, 0 are dead but not yet removable, oldest xmin: 735
+	index scan not needed: 0 pages from table (0.00% of total) had 0 dead item identifiers removed
+	avg read rate: 164.004 MB/s, avg write rate: 164.024 MB/s
+	buffer usage: 9411 hits, 8377 misses, 8378 dirtied
+	WAL usage: 8888 records, 0 full page images, 524521 bytes
+	system usage: CPU: user: 0.13 s, system: 0.09 s, elapsed: 1.59 s
+2022-03-24 22:03:48.340 CET [25796] LOG:  automatic analyze of table "test.public.customer"
+	avg read rate: 597.603 MB/s, avg write rate: 0.071 MB/s
+	buffer usage: 568 hits, 8376 misses, 1 dirtied
+	system usage: CPU: user: 0.32 s, system: 0.03 s, elapsed: 0.43 s
+2022-03-24 22:04:01.165 CET [25796] LOG:  automatic vacuum of table "test.public.orders": index scans: 0
+	pages: 0 removed, 64735 remain, 0 skipped due to pins, 0 skipped frozen
+	tuples: 0 removed, 15000000 remain, 0 are dead but not yet removable, oldest xmin: 735
+	index scan not needed: 0 pages from table (0.00% of total) had 0 dead item identifiers removed
+	avg read rate: 156.686 MB/s, avg write rate: 156.688 MB/s
+	buffer usage: 65262 hits, 64225 misses, 64226 dirtied
+	WAL usage: 64736 records, 0 full page images, 3819553 bytes
+	system usage: CPU: user: 1.14 s, system: 0.80 s, elapsed: 12.80 s
+2022-03-24 22:04:02.162 CET [25796] LOG:  automatic analyze of table "test.public.orders"
+	avg read rate: 931.926 MB/s, avg write rate: 0.000 MB/s
+	buffer usage: 324 hits, 29762 misses, 0 dirtied
+	system usage: CPU: user: 0.49 s, system: 0.14 s, elapsed: 0.99 s
+2022-03-24 22:07:40.779 CET [25833] ERROR:  canceling autovacuum task
+2022-03-24 22:07:40.779 CET [25833] CONTEXT:  while scanning block 32820 of relation "public.lineitem"
+	automatic vacuum of table "test.public.lineitem"
+2022-03-24 22:08:34.753 CET [25839] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:09:34.782 CET [25844] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:10:34.812 CET [25851] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:11:34.841 CET [25862] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:12:04.399 CET [25763] LOG:  checkpoint starting: time
+2022-03-24 22:12:37.754 CET [25878] ERROR:  canceling autovacuum task
+2022-03-24 22:12:37.754 CET [25878] CONTEXT:  while scanning block 46721 of relation "public.lineitem"
+	automatic vacuum of table "test.public.lineitem"
+2022-03-24 22:13:34.900 CET [25896] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:14:34.937 CET [25902] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:15:34.999 CET [25907] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:16:35.011 CET [25913] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:17:35.025 CET [25919] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:17:41.147 CET [25763] LOG:  checkpoint complete: wrote 1226 buffers (3.7%); 0 WAL file(s) added, 0 removed, 13572 recycled; write=319.007 s, sync=0.029 s, total=336.750 s; sync files=81, longest=0.002 s, average=0.001 s; distance=13898631 kB, estimate=13898631 kB
+2022-03-24 22:18:35.064 CET [25928] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:19:35.097 CET [25938] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:20:35.127 CET [25948] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:21:35.152 CET [25953] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:22:35.192 CET [25959] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:23:35.214 CET [25964] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:24:35.242 CET [25972] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:25:35.279 CET [25978] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:26:35.298 CET [26005] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:27:35.330 CET [26010] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:28:35.367 CET [26016] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:29:35.389 CET [26022] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:30:35.418 CET [26029] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:31:35.457 CET [26036] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:32:35.478 CET [26042] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:33:35.506 CET [26050] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:34:35.544 CET [26055] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:35:35.561 CET [26062] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:36:35.585 CET [26071] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:37:35.626 CET [26077] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:38:35.651 CET [26083] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:39:35.679 CET [26088] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:40:35.716 CET [26094] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:41:35.738 CET [26102] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:42:35.766 CET [26107] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:43:35.805 CET [26112] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:44:35.828 CET [26118] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:45:35.857 CET [26124] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:46:35.878 CET [26129] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:47:35.899 CET [26135] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:48:35.906 CET [26141] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:49:35.944 CET [26146] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:50:35.965 CET [26153] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:51:35.994 CET [26159] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:52:36.032 CET [26165] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:53:36.055 CET [26172] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:54:36.083 CET [26178] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:55:36.123 CET [26185] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:56:36.142 CET [26212] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:57:36.171 CET [26218] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:58:36.186 CET [26224] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 22:59:36.203 CET [26232] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 23:00:36.227 CET [26237] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 23:01:36.271 CET [26249] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 23:02:36.293 CET [26255] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 23:03:36.322 CET [26261] LOG:  skipping vacuum of "lineitem" --- lock not available
+2022-03-24 23:04:14.273 CET [25762] LOG:  received fast shutdown request
+2022-03-24 23:04:14.275 CET [25762] LOG:  aborting any active transactions
+2022-03-24 23:04:14.276 CET [25762] LOG:  background worker "logical replication launcher" (PID 25769) exited with exit code 1
+2022-03-24 23:04:14.284 CET [25763] LOG:  shutting down
+2022-03-24 23:04:14.285 CET [25763] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:04:16.621 CET [25763] LOG:  checkpoint complete: wrote 31859 buffers (97.2%); 0 WAL file(s) added, 0 removed, 2079 recycled; write=0.952 s, sync=0.022 s, total=2.337 s; sync files=68, longest=0.011 s, average=0.001 s; distance=2127961 kB, estimate=12721564 kB
+2022-03-24 23:04:16.717 CET [25762] LOG:  database system is shut down
+2022-03-24 23:04:16.795 CET [26290] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:04:16.796 CET [26290] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:04:16.796 CET [26290] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:04:16.797 CET [26290] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:04:16.799 CET [26293] LOG:  database system was shut down at 2022-03-24 23:04:15 CET
+2022-03-24 23:04:16.800 CET [26290] LOG:  database system is ready to accept connections
+2022-03-24 23:04:17.931 CET [26290] LOG:  received fast shutdown request
+2022-03-24 23:04:17.932 CET [26290] LOG:  aborting any active transactions
+2022-03-24 23:04:17.932 CET [26290] LOG:  background worker "logical replication launcher" (PID 26297) exited with exit code 1
+2022-03-24 23:04:17.933 CET [26291] LOG:  shutting down
+2022-03-24 23:04:17.933 CET [26291] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:04:17.957 CET [26291] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.001 s, total=0.025 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:04:17.967 CET [26290] LOG:  database system is shut down
+2022-03-24 23:04:18.050 CET [26309] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:04:18.051 CET [26309] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:04:18.051 CET [26309] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:04:18.053 CET [26309] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:04:18.057 CET [26312] LOG:  database system was shut down at 2022-03-24 23:04:17 CET
+2022-03-24 23:04:18.060 CET [26309] LOG:  database system is ready to accept connections
+2022-03-24 23:07:36.907 CET [26309] LOG:  received fast shutdown request
+2022-03-24 23:07:36.909 CET [26309] LOG:  aborting any active transactions
+2022-03-24 23:07:36.909 CET [26309] LOG:  background worker "logical replication launcher" (PID 26316) exited with exit code 1
+2022-03-24 23:07:36.909 CET [26310] LOG:  shutting down
+2022-03-24 23:07:36.909 CET [26310] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:07:36.925 CET [26310] LOG:  checkpoint complete: wrote 18 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.003 s, total=0.016 s; sync files=7, longest=0.002 s, average=0.001 s; distance=3 kB, estimate=3 kB
+2022-03-24 23:07:36.929 CET [26309] LOG:  database system is shut down
+2022-03-24 23:07:37.023 CET [26366] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:07:37.025 CET [26366] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:07:37.025 CET [26366] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:07:37.026 CET [26366] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:07:37.030 CET [26369] LOG:  database system was shut down at 2022-03-24 23:07:36 CET
+2022-03-24 23:07:37.033 CET [26366] LOG:  database system is ready to accept connections
+2022-03-24 23:07:37.696 CET [26366] LOG:  received fast shutdown request
+2022-03-24 23:07:37.697 CET [26366] LOG:  aborting any active transactions
+2022-03-24 23:07:37.697 CET [26366] LOG:  background worker "logical replication launcher" (PID 26373) exited with exit code 1
+2022-03-24 23:07:37.697 CET [26367] LOG:  shutting down
+2022-03-24 23:07:37.698 CET [26367] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:07:37.719 CET [26367] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.006 s, sync=0.001 s, total=0.023 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:07:37.725 CET [26366] LOG:  database system is shut down
+2022-03-24 23:07:37.814 CET [26385] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:07:37.816 CET [26385] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:07:37.816 CET [26385] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:07:37.817 CET [26385] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:07:37.822 CET [26388] LOG:  database system was shut down at 2022-03-24 23:07:37 CET
+2022-03-24 23:07:37.827 CET [26385] LOG:  database system is ready to accept connections
+2022-03-24 23:07:56.232 CET [26385] LOG:  received fast shutdown request
+2022-03-24 23:07:56.233 CET [26385] LOG:  aborting any active transactions
+2022-03-24 23:07:56.233 CET [26385] LOG:  background worker "logical replication launcher" (PID 26392) exited with exit code 1
+2022-03-24 23:07:56.242 CET [26386] LOG:  shutting down
+2022-03-24 23:07:56.242 CET [26386] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:07:56.258 CET [26386] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.002 s, total=0.016 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:07:56.328 CET [26385] LOG:  database system is shut down
+2022-03-24 23:07:56.349 CET [26426] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:07:56.350 CET [26426] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:07:56.350 CET [26426] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:07:56.352 CET [26426] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:07:56.356 CET [26429] LOG:  database system was shut down at 2022-03-24 23:07:56 CET
+2022-03-24 23:07:56.359 CET [26426] LOG:  database system is ready to accept connections
+2022-03-24 23:07:56.677 CET [26426] LOG:  received fast shutdown request
+2022-03-24 23:07:56.677 CET [26426] LOG:  aborting any active transactions
+2022-03-24 23:07:56.678 CET [26426] LOG:  background worker "logical replication launcher" (PID 26433) exited with exit code 1
+2022-03-24 23:07:56.678 CET [26427] LOG:  shutting down
+2022-03-24 23:07:56.678 CET [26427] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:07:56.706 CET [26427] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.002 s, total=0.028 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:07:56.710 CET [26426] LOG:  database system is shut down
+2022-03-24 23:07:56.794 CET [26443] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:07:56.796 CET [26443] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:07:56.796 CET [26443] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:07:56.798 CET [26443] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:07:56.803 CET [26446] LOG:  database system was shut down at 2022-03-24 23:07:56 CET
+2022-03-24 23:07:56.806 CET [26443] LOG:  database system is ready to accept connections
+2022-03-24 23:08:30.448 CET [26443] LOG:  received fast shutdown request
+2022-03-24 23:08:30.449 CET [26443] LOG:  aborting any active transactions
+2022-03-24 23:08:30.450 CET [26443] LOG:  background worker "logical replication launcher" (PID 26450) exited with exit code 1
+2022-03-24 23:08:30.450 CET [26444] LOG:  shutting down
+2022-03-24 23:08:30.451 CET [26444] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:08:30.466 CET [26444] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.001 s, total=0.016 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:08:30.534 CET [26443] LOG:  database system is shut down
+2022-03-24 23:08:30.564 CET [26485] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:08:30.566 CET [26485] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:08:30.566 CET [26485] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:08:30.567 CET [26485] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:08:30.571 CET [26488] LOG:  database system was shut down at 2022-03-24 23:08:30 CET
+2022-03-24 23:08:30.575 CET [26485] LOG:  database system is ready to accept connections
+2022-03-24 23:08:31.230 CET [26485] LOG:  received fast shutdown request
+2022-03-24 23:08:31.230 CET [26485] LOG:  aborting any active transactions
+2022-03-24 23:08:31.231 CET [26485] LOG:  background worker "logical replication launcher" (PID 26492) exited with exit code 1
+2022-03-24 23:08:31.231 CET [26486] LOG:  shutting down
+2022-03-24 23:08:31.232 CET [26486] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:08:31.258 CET [26486] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.001 s, total=0.027 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:08:31.263 CET [26485] LOG:  database system is shut down
+2022-03-24 23:08:31.347 CET [26504] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:08:31.348 CET [26504] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:08:31.348 CET [26504] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:08:31.350 CET [26504] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:08:31.354 CET [26507] LOG:  database system was shut down at 2022-03-24 23:08:31 CET
+2022-03-24 23:08:31.357 CET [26504] LOG:  database system is ready to accept connections
+2022-03-24 23:08:59.013 CET [26504] LOG:  received fast shutdown request
+2022-03-24 23:08:59.015 CET [26504] LOG:  aborting any active transactions
+2022-03-24 23:08:59.015 CET [26504] LOG:  background worker "logical replication launcher" (PID 26511) exited with exit code 1
+2022-03-24 23:08:59.015 CET [26505] LOG:  shutting down
+2022-03-24 23:08:59.016 CET [26505] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:08:59.033 CET [26505] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.002 s, total=0.018 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:08:59.106 CET [26504] LOG:  database system is shut down
+2022-03-24 23:08:59.129 CET [26547] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:08:59.130 CET [26547] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:08:59.130 CET [26547] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:08:59.132 CET [26547] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:08:59.136 CET [26550] LOG:  database system was shut down at 2022-03-24 23:08:59 CET
+2022-03-24 23:08:59.139 CET [26547] LOG:  database system is ready to accept connections
+2022-03-24 23:08:59.797 CET [26547] LOG:  received fast shutdown request
+2022-03-24 23:08:59.798 CET [26547] LOG:  aborting any active transactions
+2022-03-24 23:08:59.798 CET [26547] LOG:  background worker "logical replication launcher" (PID 26554) exited with exit code 1
+2022-03-24 23:08:59.798 CET [26548] LOG:  shutting down
+2022-03-24 23:08:59.799 CET [26548] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:08:59.825 CET [26548] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.002 s, total=0.027 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:08:59.830 CET [26547] LOG:  database system is shut down
+2022-03-24 23:08:59.915 CET [26564] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:08:59.916 CET [26564] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:08:59.916 CET [26564] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:08:59.918 CET [26564] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:08:59.923 CET [26567] LOG:  database system was shut down at 2022-03-24 23:08:59 CET
+2022-03-24 23:08:59.926 CET [26564] LOG:  database system is ready to accept connections
+2022-03-24 23:09:29.697 CET [26564] LOG:  received fast shutdown request
+2022-03-24 23:09:29.698 CET [26564] LOG:  aborting any active transactions
+2022-03-24 23:09:29.698 CET [26564] LOG:  background worker "logical replication launcher" (PID 26571) exited with exit code 1
+2022-03-24 23:09:29.698 CET [26565] LOG:  shutting down
+2022-03-24 23:09:29.699 CET [26565] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:09:29.716 CET [26565] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.002 s, total=0.018 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:09:29.785 CET [26564] LOG:  database system is shut down
+2022-03-24 23:09:29.813 CET [26605] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:09:29.815 CET [26605] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:09:29.815 CET [26605] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:09:29.817 CET [26605] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:09:29.821 CET [26608] LOG:  database system was shut down at 2022-03-24 23:09:29 CET
+2022-03-24 23:09:29.824 CET [26605] LOG:  database system is ready to accept connections
+2022-03-24 23:09:30.462 CET [26605] LOG:  received fast shutdown request
+2022-03-24 23:09:30.463 CET [26605] LOG:  aborting any active transactions
+2022-03-24 23:09:30.463 CET [26605] LOG:  background worker "logical replication launcher" (PID 26612) exited with exit code 1
+2022-03-24 23:09:30.463 CET [26606] LOG:  shutting down
+2022-03-24 23:09:30.464 CET [26606] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:09:30.496 CET [26606] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.008 s, sync=0.002 s, total=0.033 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:09:30.502 CET [26605] LOG:  database system is shut down
+2022-03-24 23:09:30.580 CET [26624] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:09:30.582 CET [26624] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:09:30.582 CET [26624] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:09:30.583 CET [26624] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:09:30.588 CET [26627] LOG:  database system was shut down at 2022-03-24 23:09:30 CET
+2022-03-24 23:09:30.591 CET [26624] LOG:  database system is ready to accept connections
+2022-03-24 23:09:57.097 CET [26624] LOG:  received fast shutdown request
+2022-03-24 23:09:57.098 CET [26624] LOG:  aborting any active transactions
+2022-03-24 23:09:57.098 CET [26624] LOG:  background worker "logical replication launcher" (PID 26631) exited with exit code 1
+2022-03-24 23:09:57.098 CET [26625] LOG:  shutting down
+2022-03-24 23:09:57.099 CET [26625] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:09:57.117 CET [26625] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.001 s, total=0.019 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:09:57.194 CET [26624] LOG:  database system is shut down
+2022-03-24 23:09:57.214 CET [26666] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:09:57.215 CET [26666] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:09:57.215 CET [26666] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:09:57.217 CET [26666] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:09:57.223 CET [26669] LOG:  database system was shut down at 2022-03-24 23:09:57 CET
+2022-03-24 23:09:57.225 CET [26666] LOG:  database system is ready to accept connections
+2022-03-24 23:09:57.837 CET [26666] LOG:  received fast shutdown request
+2022-03-24 23:09:57.838 CET [26666] LOG:  aborting any active transactions
+2022-03-24 23:09:57.838 CET [26666] LOG:  background worker "logical replication launcher" (PID 26673) exited with exit code 1
+2022-03-24 23:09:57.838 CET [26667] LOG:  shutting down
+2022-03-24 23:09:57.839 CET [26667] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:09:57.859 CET [26667] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.001 s, total=0.021 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:09:57.864 CET [26666] LOG:  database system is shut down
+2022-03-24 23:09:57.955 CET [26683] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:09:57.956 CET [26683] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:09:57.957 CET [26683] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:09:57.958 CET [26683] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:09:57.963 CET [26686] LOG:  database system was shut down at 2022-03-24 23:09:57 CET
+2022-03-24 23:09:57.966 CET [26683] LOG:  database system is ready to accept connections
+2022-03-24 23:19:58.068 CET [26684] LOG:  checkpoint starting: time
+2022-03-24 23:19:58.096 CET [26684] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.002 s, total=0.032 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:26:38.451 CET [26683] LOG:  received fast shutdown request
+2022-03-24 23:26:38.453 CET [26683] LOG:  aborting any active transactions
+2022-03-24 23:26:38.453 CET [26683] LOG:  background worker "logical replication launcher" (PID 26690) exited with exit code 1
+2022-03-24 23:26:38.453 CET [26684] LOG:  shutting down
+2022-03-24 23:26:38.454 CET [26684] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:26:38.459 CET [26684] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.006 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:26:38.532 CET [26683] LOG:  database system is shut down
+2022-03-24 23:26:38.570 CET [26849] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:26:38.571 CET [26849] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:26:38.571 CET [26849] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:26:38.573 CET [26849] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:26:38.577 CET [26852] LOG:  database system was shut down at 2022-03-24 23:26:38 CET
+2022-03-24 23:26:38.580 CET [26849] LOG:  database system is ready to accept connections
+2022-03-24 23:26:39.471 CET [26849] LOG:  received fast shutdown request
+2022-03-24 23:26:39.472 CET [26849] LOG:  aborting any active transactions
+2022-03-24 23:26:39.472 CET [26849] LOG:  background worker "logical replication launcher" (PID 26856) exited with exit code 1
+2022-03-24 23:26:39.472 CET [26850] LOG:  shutting down
+2022-03-24 23:26:39.473 CET [26850] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:26:39.496 CET [26850] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.001 s, total=0.025 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:26:39.501 CET [26849] LOG:  database system is shut down
+2022-03-24 23:26:39.589 CET [26867] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:26:39.591 CET [26867] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:26:39.591 CET [26867] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:26:39.593 CET [26867] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:26:39.601 CET [26870] LOG:  database system was shut down at 2022-03-24 23:26:39 CET
+2022-03-24 23:26:39.604 CET [26867] LOG:  database system is ready to accept connections
+2022-03-24 23:31:49.865 CET [26867] LOG:  received fast shutdown request
+2022-03-24 23:31:49.867 CET [26867] LOG:  aborting any active transactions
+2022-03-24 23:31:49.867 CET [26867] LOG:  background worker "logical replication launcher" (PID 26874) exited with exit code 1
+2022-03-24 23:31:49.867 CET [26868] LOG:  shutting down
+2022-03-24 23:31:49.868 CET [26868] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:31:49.887 CET [26868] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.002 s, total=0.020 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:31:49.960 CET [26867] LOG:  database system is shut down
+2022-03-24 23:31:49.983 CET [26941] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:31:49.985 CET [26941] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:31:49.985 CET [26941] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:31:49.987 CET [26941] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:31:49.991 CET [26944] LOG:  database system was shut down at 2022-03-24 23:31:49 CET
+2022-03-24 23:31:49.994 CET [26941] LOG:  database system is ready to accept connections
+2022-03-24 23:31:50.868 CET [26941] LOG:  received fast shutdown request
+2022-03-24 23:31:50.869 CET [26941] LOG:  aborting any active transactions
+2022-03-24 23:31:50.870 CET [26941] LOG:  background worker "logical replication launcher" (PID 26948) exited with exit code 1
+2022-03-24 23:31:50.870 CET [26942] LOG:  shutting down
+2022-03-24 23:31:50.870 CET [26942] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:31:50.891 CET [26942] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.001 s, total=0.022 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:31:50.896 CET [26941] LOG:  database system is shut down
+2022-03-24 23:31:50.985 CET [26959] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:31:50.986 CET [26959] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:31:50.986 CET [26959] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:31:50.988 CET [26959] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:31:50.992 CET [26962] LOG:  database system was shut down at 2022-03-24 23:31:50 CET
+2022-03-24 23:31:50.995 CET [26959] LOG:  database system is ready to accept connections
+2022-03-24 23:41:50.997 CET [26960] LOG:  checkpoint starting: time
+2022-03-24 23:41:51.035 CET [26960] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.002 s, total=0.041 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:52:14.392 CET [26959] LOG:  received fast shutdown request
+2022-03-24 23:52:14.393 CET [26959] LOG:  aborting any active transactions
+2022-03-24 23:52:14.394 CET [26959] LOG:  background worker "logical replication launcher" (PID 26966) exited with exit code 1
+2022-03-24 23:52:14.394 CET [26960] LOG:  shutting down
+2022-03-24 23:52:14.395 CET [26960] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:52:14.400 CET [26960] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.006 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:52:14.472 CET [26959] LOG:  database system is shut down
+2022-03-24 23:52:14.511 CET [27133] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:52:14.512 CET [27133] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:52:14.512 CET [27133] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:52:14.514 CET [27133] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:52:14.518 CET [27136] LOG:  database system was shut down at 2022-03-24 23:52:14 CET
+2022-03-24 23:52:14.521 CET [27133] LOG:  database system is ready to accept connections
+2022-03-24 23:52:15.371 CET [27133] LOG:  received fast shutdown request
+2022-03-24 23:52:15.372 CET [27133] LOG:  aborting any active transactions
+2022-03-24 23:52:15.372 CET [27133] LOG:  background worker "logical replication launcher" (PID 27140) exited with exit code 1
+2022-03-24 23:52:15.372 CET [27134] LOG:  shutting down
+2022-03-24 23:52:15.373 CET [27134] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:52:15.397 CET [27134] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.001 s, total=0.025 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:52:15.402 CET [27133] LOG:  database system is shut down
+2022-03-24 23:52:15.489 CET [27151] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:52:15.491 CET [27151] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:52:15.491 CET [27151] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:52:15.492 CET [27151] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:52:15.497 CET [27154] LOG:  database system was shut down at 2022-03-24 23:52:15 CET
+2022-03-24 23:52:15.500 CET [27151] LOG:  database system is ready to accept connections
+2022-03-24 23:54:23.184 CET [27151] LOG:  received fast shutdown request
+2022-03-24 23:54:23.186 CET [27151] LOG:  aborting any active transactions
+2022-03-24 23:54:23.186 CET [27151] LOG:  background worker "logical replication launcher" (PID 27158) exited with exit code 1
+2022-03-24 23:54:23.186 CET [27152] LOG:  shutting down
+2022-03-24 23:54:23.187 CET [27152] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:54:23.202 CET [27152] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.001 s, total=0.016 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:54:23.271 CET [27151] LOG:  database system is shut down
+2022-03-24 23:54:23.301 CET [27204] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:54:23.303 CET [27204] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:54:23.303 CET [27204] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:54:23.304 CET [27204] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:54:23.308 CET [27207] LOG:  database system was shut down at 2022-03-24 23:54:23 CET
+2022-03-24 23:54:23.311 CET [27204] LOG:  database system is ready to accept connections
+2022-03-24 23:54:23.952 CET [27204] LOG:  received fast shutdown request
+2022-03-24 23:54:23.954 CET [27204] LOG:  aborting any active transactions
+2022-03-24 23:54:23.954 CET [27204] LOG:  background worker "logical replication launcher" (PID 27211) exited with exit code 1
+2022-03-24 23:54:23.954 CET [27205] LOG:  shutting down
+2022-03-24 23:54:23.955 CET [27205] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:54:23.979 CET [27205] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.001 s, total=0.026 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:54:23.985 CET [27204] LOG:  database system is shut down
+2022-03-24 23:54:24.071 CET [27222] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:54:24.072 CET [27222] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:54:24.072 CET [27222] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:54:24.074 CET [27222] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:54:24.079 CET [27225] LOG:  database system was shut down at 2022-03-24 23:54:23 CET
+2022-03-24 23:54:24.082 CET [27222] LOG:  database system is ready to accept connections
+2022-03-24 23:54:32.277 CET [27222] LOG:  received fast shutdown request
+2022-03-24 23:54:32.278 CET [27222] LOG:  aborting any active transactions
+2022-03-24 23:54:32.279 CET [27222] LOG:  background worker "logical replication launcher" (PID 27229) exited with exit code 1
+2022-03-24 23:54:32.287 CET [27223] LOG:  shutting down
+2022-03-24 23:54:32.288 CET [27223] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:54:32.307 CET [27223] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.001 s, total=0.021 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:54:32.378 CET [27222] LOG:  database system is shut down
+2022-03-24 23:54:32.494 CET [27262] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:54:32.495 CET [27262] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:54:32.495 CET [27262] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:54:32.497 CET [27262] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:54:32.501 CET [27265] LOG:  database system was shut down at 2022-03-24 23:54:32 CET
+2022-03-24 23:54:32.504 CET [27262] LOG:  database system is ready to accept connections
+2022-03-24 23:54:32.784 CET [27262] LOG:  received fast shutdown request
+2022-03-24 23:54:32.784 CET [27262] LOG:  aborting any active transactions
+2022-03-24 23:54:32.785 CET [27262] LOG:  background worker "logical replication launcher" (PID 27269) exited with exit code 1
+2022-03-24 23:54:32.785 CET [27263] LOG:  shutting down
+2022-03-24 23:54:32.785 CET [27263] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:54:32.815 CET [27263] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.002 s, total=0.031 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:54:32.820 CET [27262] LOG:  database system is shut down
+2022-03-24 23:54:32.902 CET [27279] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:54:32.903 CET [27279] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:54:32.903 CET [27279] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:54:32.905 CET [27279] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:54:32.910 CET [27282] LOG:  database system was shut down at 2022-03-24 23:54:32 CET
+2022-03-24 23:54:32.912 CET [27279] LOG:  database system is ready to accept connections
+2022-03-24 23:55:18.691 CET [27279] LOG:  received fast shutdown request
+2022-03-24 23:55:18.693 CET [27279] LOG:  aborting any active transactions
+2022-03-24 23:55:18.693 CET [27279] LOG:  background worker "logical replication launcher" (PID 27286) exited with exit code 1
+2022-03-24 23:55:18.693 CET [27280] LOG:  shutting down
+2022-03-24 23:55:18.694 CET [27280] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:55:18.710 CET [27280] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.001 s, total=0.018 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:55:18.780 CET [27279] LOG:  database system is shut down
+2022-03-24 23:55:18.807 CET [27323] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:55:18.809 CET [27323] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:55:18.809 CET [27323] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:55:18.811 CET [27323] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:55:18.815 CET [27326] LOG:  database system was shut down at 2022-03-24 23:55:18 CET
+2022-03-24 23:55:18.818 CET [27323] LOG:  database system is ready to accept connections
+2022-03-24 23:55:19.424 CET [27323] LOG:  received fast shutdown request
+2022-03-24 23:55:19.425 CET [27323] LOG:  aborting any active transactions
+2022-03-24 23:55:19.425 CET [27323] LOG:  background worker "logical replication launcher" (PID 27330) exited with exit code 1
+2022-03-24 23:55:19.425 CET [27324] LOG:  shutting down
+2022-03-24 23:55:19.426 CET [27324] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:55:19.454 CET [27324] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.001 s, total=0.029 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:55:19.458 CET [27323] LOG:  database system is shut down
+2022-03-24 23:55:19.541 CET [27341] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:55:19.543 CET [27341] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:55:19.543 CET [27341] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:55:19.544 CET [27341] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:55:19.549 CET [27344] LOG:  database system was shut down at 2022-03-24 23:55:19 CET
+2022-03-24 23:55:19.552 CET [27341] LOG:  database system is ready to accept connections
+2022-03-24 23:58:45.703 CET [27341] LOG:  received fast shutdown request
+2022-03-24 23:58:45.704 CET [27341] LOG:  aborting any active transactions
+2022-03-24 23:58:45.704 CET [27341] LOG:  background worker "logical replication launcher" (PID 27348) exited with exit code 1
+2022-03-24 23:58:45.715 CET [27342] LOG:  shutting down
+2022-03-24 23:58:45.717 CET [27342] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:58:45.736 CET [27342] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.002 s, total=0.021 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:58:45.808 CET [27341] LOG:  database system is shut down
+2022-03-24 23:58:45.918 CET [27421] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:58:45.919 CET [27421] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:58:45.919 CET [27421] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:58:45.920 CET [27421] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:58:45.923 CET [27424] LOG:  database system was shut down at 2022-03-24 23:58:45 CET
+2022-03-24 23:58:45.926 CET [27421] LOG:  database system is ready to accept connections
+2022-03-24 23:58:46.264 CET [27421] LOG:  received fast shutdown request
+2022-03-24 23:58:46.264 CET [27421] LOG:  aborting any active transactions
+2022-03-24 23:58:46.265 CET [27421] LOG:  background worker "logical replication launcher" (PID 27428) exited with exit code 1
+2022-03-24 23:58:46.265 CET [27422] LOG:  shutting down
+2022-03-24 23:58:46.266 CET [27422] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:58:46.291 CET [27422] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.001 s, total=0.026 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:58:46.295 CET [27421] LOG:  database system is shut down
+2022-03-24 23:58:46.382 CET [27440] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:58:46.383 CET [27440] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:58:46.383 CET [27440] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:58:46.384 CET [27440] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:58:46.389 CET [27443] LOG:  database system was shut down at 2022-03-24 23:58:46 CET
+2022-03-24 23:58:46.392 CET [27440] LOG:  database system is ready to accept connections
+2022-03-24 23:59:09.804 CET [27440] LOG:  received fast shutdown request
+2022-03-24 23:59:09.806 CET [27440] LOG:  aborting any active transactions
+2022-03-24 23:59:09.806 CET [27440] LOG:  background worker "logical replication launcher" (PID 27447) exited with exit code 1
+2022-03-24 23:59:09.806 CET [27441] LOG:  shutting down
+2022-03-24 23:59:09.807 CET [27441] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:59:09.821 CET [27441] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.015 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-24 23:59:09.891 CET [27440] LOG:  database system is shut down
+2022-03-24 23:59:09.921 CET [27483] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:59:09.923 CET [27483] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:59:09.923 CET [27483] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:59:09.924 CET [27483] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:59:09.929 CET [27486] LOG:  database system was shut down at 2022-03-24 23:59:09 CET
+2022-03-24 23:59:09.932 CET [27483] LOG:  database system is ready to accept connections
+2022-03-24 23:59:10.539 CET [27483] LOG:  received fast shutdown request
+2022-03-24 23:59:10.539 CET [27483] LOG:  aborting any active transactions
+2022-03-24 23:59:10.540 CET [27483] LOG:  background worker "logical replication launcher" (PID 27490) exited with exit code 1
+2022-03-24 23:59:10.540 CET [27484] LOG:  shutting down
+2022-03-24 23:59:10.541 CET [27484] LOG:  checkpoint starting: shutdown immediate
+2022-03-24 23:59:10.565 CET [27484] LOG:  checkpoint complete: wrote 25 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.004 s, total=0.026 s; sync files=23, longest=0.002 s, average=0.001 s; distance=9 kB, estimate=9 kB
+2022-03-24 23:59:10.571 CET [27483] LOG:  database system is shut down
+2022-03-24 23:59:10.657 CET [27501] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-24 23:59:10.658 CET [27501] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-24 23:59:10.658 CET [27501] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-24 23:59:10.660 CET [27501] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-24 23:59:10.665 CET [27504] LOG:  database system was shut down at 2022-03-24 23:59:10 CET
+2022-03-24 23:59:10.668 CET [27501] LOG:  database system is ready to accept connections
+2022-03-25 00:00:01.375 CET [27501] LOG:  received fast shutdown request
+2022-03-25 00:00:01.377 CET [27501] LOG:  aborting any active transactions
+2022-03-25 00:00:01.377 CET [27501] LOG:  background worker "logical replication launcher" (PID 27508) exited with exit code 1
+2022-03-25 00:00:01.377 CET [27502] LOG:  shutting down
+2022-03-25 00:00:01.378 CET [27502] LOG:  checkpoint starting: shutdown immediate
+2022-03-25 00:00:01.397 CET [27502] LOG:  checkpoint complete: wrote 8 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.004 s, total=0.020 s; sync files=18, longest=0.001 s, average=0.001 s; distance=29 kB, estimate=29 kB
+2022-03-25 00:00:01.467 CET [27501] LOG:  database system is shut down
+2022-03-25 00:00:01.491 CET [27543] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-25 00:00:01.493 CET [27543] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-25 00:00:01.493 CET [27543] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-25 00:00:01.494 CET [27543] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-25 00:00:01.499 CET [27546] LOG:  database system was shut down at 2022-03-25 00:00:01 CET
+2022-03-25 00:00:01.503 CET [27543] LOG:  database system is ready to accept connections
+2022-03-25 00:00:02.097 CET [27543] LOG:  received fast shutdown request
+2022-03-25 00:00:02.098 CET [27543] LOG:  aborting any active transactions
+2022-03-25 00:00:02.098 CET [27543] LOG:  background worker "logical replication launcher" (PID 27550) exited with exit code 1
+2022-03-25 00:00:02.098 CET [27544] LOG:  shutting down
+2022-03-25 00:00:02.099 CET [27544] LOG:  checkpoint starting: shutdown immediate
+2022-03-25 00:00:02.127 CET [27544] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.002 s, total=0.029 s; sync files=3, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-25 00:00:02.131 CET [27543] LOG:  database system is shut down
+2022-03-25 00:00:02.212 CET [27562] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-25 00:00:02.214 CET [27562] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-25 00:00:02.214 CET [27562] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-25 00:00:02.215 CET [27562] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-25 00:00:02.220 CET [27565] LOG:  database system was shut down at 2022-03-25 00:00:02 CET
+2022-03-25 00:00:02.224 CET [27562] LOG:  database system is ready to accept connections
+2022-03-25 00:00:19.874 CET [27562] LOG:  received fast shutdown request
+2022-03-25 00:00:19.875 CET [27562] LOG:  aborting any active transactions
+2022-03-25 00:00:19.875 CET [27562] LOG:  background worker "logical replication launcher" (PID 27569) exited with exit code 1
+2022-03-25 00:00:19.875 CET [27563] LOG:  shutting down
+2022-03-25 00:00:19.876 CET [27563] LOG:  checkpoint starting: shutdown immediate
+2022-03-25 00:00:19.892 CET [27563] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.001 s, total=0.017 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-25 00:00:19.899 CET [27562] LOG:  database system is shut down
+2022-03-25 00:00:19.991 CET [27601] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-25 00:00:19.992 CET [27601] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-25 00:00:19.992 CET [27601] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-25 00:00:19.994 CET [27601] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-25 00:00:19.999 CET [27604] LOG:  database system was shut down at 2022-03-25 00:00:19 CET
+2022-03-25 00:00:20.003 CET [27601] LOG:  database system is ready to accept connections
+2022-03-25 00:00:20.291 CET [27601] LOG:  received fast shutdown request
+2022-03-25 00:00:20.291 CET [27601] LOG:  aborting any active transactions
+2022-03-25 00:00:20.292 CET [27601] LOG:  background worker "logical replication launcher" (PID 27608) exited with exit code 1
+2022-03-25 00:00:20.292 CET [27602] LOG:  shutting down
+2022-03-25 00:00:20.293 CET [27602] LOG:  checkpoint starting: shutdown immediate
+2022-03-25 00:00:20.314 CET [27602] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.002 s, total=0.022 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-25 00:00:20.318 CET [27601] LOG:  database system is shut down
+2022-03-25 00:00:20.408 CET [27620] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-25 00:00:20.410 CET [27620] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-25 00:00:20.410 CET [27620] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-25 00:00:20.411 CET [27620] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-25 00:00:20.415 CET [27623] LOG:  database system was shut down at 2022-03-25 00:00:20 CET
+2022-03-25 00:00:20.419 CET [27620] LOG:  database system is ready to accept connections
+2022-03-25 00:10:20.510 CET [27621] LOG:  checkpoint starting: time
+2022-03-25 00:10:20.547 CET [27621] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.002 s, total=0.041 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-25 05:37:20.496 CET [27620] LOG:  received fast shutdown request
+2022-03-25 05:37:20.498 CET [27620] LOG:  aborting any active transactions
+2022-03-25 05:37:20.498 CET [27620] LOG:  background worker "logical replication launcher" (PID 27627) exited with exit code 1
+2022-03-25 05:37:20.499 CET [27621] LOG:  shutting down
+2022-03-25 05:37:20.500 CET [27621] LOG:  checkpoint starting: shutdown immediate
+2022-03-25 05:37:20.504 CET [27621] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.006 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB
+2022-03-25 05:37:20.576 CET [27620] LOG:  database system is shut down
+2022-03-25 05:37:20.619 CET [30209] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-25 05:37:20.621 CET [30209] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-25 05:37:20.621 CET [30209] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-25 05:37:20.622 CET [30209] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-25 05:37:20.626 CET [30212] LOG:  database system was shut down at 2022-03-25 05:37:20 CET
+2022-03-25 05:37:20.630 CET [30209] LOG:  database system is ready to accept connections
+2022-03-25 05:37:21.465 CET [30209] LOG:  received fast shutdown request
+2022-03-25 05:37:21.466 CET [30209] LOG:  aborting any active transactions
+2022-03-25 05:37:21.466 CET [30209] LOG:  background worker "logical replication launcher" (PID 30216) exited with exit code 1
+2022-03-25 05:37:21.466 CET [30210] LOG:  shutting down
+2022-03-25 05:37:21.467 CET [30210] LOG:  checkpoint starting: shutdown immediate
+2022-03-25 05:37:21.491 CET [30210] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.001 s, total=0.025 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-25 05:37:21.496 CET [30209] LOG:  database system is shut down
+2022-03-25 05:37:21.583 CET [30227] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-25 05:37:21.584 CET [30227] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-25 05:37:21.584 CET [30227] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-25 05:37:21.586 CET [30227] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-25 05:37:21.592 CET [30230] LOG:  database system was shut down at 2022-03-25 05:37:21 CET
+2022-03-25 05:37:21.595 CET [30227] LOG:  database system is ready to accept connections
+2022-03-25 05:39:32.846 CET [30227] LOG:  received fast shutdown request
+2022-03-25 05:39:32.848 CET [30227] LOG:  aborting any active transactions
+2022-03-25 05:39:32.848 CET [30227] LOG:  background worker "logical replication launcher" (PID 30234) exited with exit code 1
+2022-03-25 05:39:32.848 CET [30228] LOG:  shutting down
+2022-03-25 05:39:32.849 CET [30228] LOG:  checkpoint starting: shutdown immediate
+2022-03-25 05:39:32.863 CET [30228] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.016 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-25 05:39:32.932 CET [30227] LOG:  database system is shut down
+2022-03-25 05:39:32.963 CET [30282] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-25 05:39:32.965 CET [30282] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-25 05:39:32.965 CET [30282] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-25 05:39:32.966 CET [30282] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-25 05:39:32.971 CET [30285] LOG:  database system was shut down at 2022-03-25 05:39:32 CET
+2022-03-25 05:39:32.975 CET [30282] LOG:  database system is ready to accept connections
+2022-03-25 05:39:33.526 CET [30282] LOG:  received fast shutdown request
+2022-03-25 05:39:33.527 CET [30282] LOG:  aborting any active transactions
+2022-03-25 05:39:33.528 CET [30282] LOG:  background worker "logical replication launcher" (PID 30289) exited with exit code 1
+2022-03-25 05:39:33.528 CET [30283] LOG:  shutting down
+2022-03-25 05:39:33.528 CET [30283] LOG:  checkpoint starting: shutdown immediate
+2022-03-25 05:39:33.553 CET [30283] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.001 s, total=0.025 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-25 05:39:33.557 CET [30282] LOG:  database system is shut down
+2022-03-25 05:39:33.644 CET [30300] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-25 05:39:33.645 CET [30300] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-25 05:39:33.645 CET [30300] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-25 05:39:33.647 CET [30300] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-25 05:39:33.652 CET [30303] LOG:  database system was shut down at 2022-03-25 05:39:33 CET
+2022-03-25 05:39:33.656 CET [30300] LOG:  database system is ready to accept connections
+2022-03-25 05:40:15.300 CET [30300] LOG:  received fast shutdown request
+2022-03-25 05:40:15.300 CET [30300] LOG:  aborting any active transactions
+2022-03-25 05:40:15.301 CET [30300] LOG:  background worker "logical replication launcher" (PID 30307) exited with exit code 1
+2022-03-25 05:40:15.311 CET [30301] LOG:  shutting down
+2022-03-25 05:40:15.312 CET [30301] LOG:  checkpoint starting: shutdown immediate
+2022-03-25 05:40:15.329 CET [30301] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.001 s, total=0.018 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-25 05:40:15.401 CET [30300] LOG:  database system is shut down
+2022-03-25 05:40:15.515 CET [30346] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-25 05:40:15.516 CET [30346] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-25 05:40:15.516 CET [30346] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-25 05:40:15.518 CET [30346] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-25 05:40:15.523 CET [30349] LOG:  database system was shut down at 2022-03-25 05:40:15 CET
+2022-03-25 05:40:15.526 CET [30346] LOG:  database system is ready to accept connections
+2022-03-25 05:40:16.104 CET [30346] LOG:  received fast shutdown request
+2022-03-25 05:40:16.104 CET [30346] LOG:  aborting any active transactions
+2022-03-25 05:40:16.105 CET [30346] LOG:  background worker "logical replication launcher" (PID 30353) exited with exit code 1
+2022-03-25 05:40:16.105 CET [30347] LOG:  shutting down
+2022-03-25 05:40:16.106 CET [30347] LOG:  checkpoint starting: shutdown immediate
+2022-03-25 05:40:16.130 CET [30347] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.002 s, total=0.026 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-25 05:40:16.135 CET [30346] LOG:  database system is shut down
+2022-03-25 05:40:16.222 CET [30366] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-25 05:40:16.223 CET [30366] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-25 05:40:16.223 CET [30366] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-25 05:40:16.225 CET [30366] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-25 05:40:16.230 CET [30369] LOG:  database system was shut down at 2022-03-25 05:40:16 CET
+2022-03-25 05:40:16.234 CET [30366] LOG:  database system is ready to accept connections
+2022-03-25 05:41:52.451 CET [30366] LOG:  received fast shutdown request
+2022-03-25 05:41:52.453 CET [30366] LOG:  aborting any active transactions
+2022-03-25 05:41:52.453 CET [30366] LOG:  background worker "logical replication launcher" (PID 30373) exited with exit code 1
+2022-03-25 05:41:52.453 CET [30367] LOG:  shutting down
+2022-03-25 05:41:52.454 CET [30367] LOG:  checkpoint starting: shutdown immediate
+2022-03-25 05:41:52.469 CET [30367] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.016 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-25 05:41:52.540 CET [30366] LOG:  database system is shut down
+2022-03-25 05:41:52.568 CET [30412] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-25 05:41:52.570 CET [30412] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-25 05:41:52.570 CET [30412] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-25 05:41:52.572 CET [30412] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-25 05:41:52.576 CET [30415] LOG:  database system was shut down at 2022-03-25 05:41:52 CET
+2022-03-25 05:41:52.579 CET [30412] LOG:  database system is ready to accept connections
+2022-03-25 05:41:53.174 CET [30412] LOG:  received fast shutdown request
+2022-03-25 05:41:53.174 CET [30412] LOG:  aborting any active transactions
+2022-03-25 05:41:53.175 CET [30412] LOG:  background worker "logical replication launcher" (PID 30419) exited with exit code 1
+2022-03-25 05:41:53.175 CET [30413] LOG:  shutting down
+2022-03-25 05:41:53.175 CET [30413] LOG:  checkpoint starting: shutdown immediate
+2022-03-25 05:41:53.198 CET [30413] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.001 s, total=0.024 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-25 05:41:53.203 CET [30412] LOG:  database system is shut down
+2022-03-25 05:41:53.291 CET [30431] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-25 05:41:53.292 CET [30431] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-25 05:41:53.292 CET [30431] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-25 05:41:53.294 CET [30431] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-25 05:41:53.298 CET [30434] LOG:  database system was shut down at 2022-03-25 05:41:53 CET
+2022-03-25 05:41:53.302 CET [30431] LOG:  database system is ready to accept connections
+2022-03-25 05:43:00.321 CET [30431] LOG:  received fast shutdown request
+2022-03-25 05:43:00.323 CET [30431] LOG:  aborting any active transactions
+2022-03-25 05:43:00.323 CET [30431] LOG:  background worker "logical replication launcher" (PID 30438) exited with exit code 1
+2022-03-25 05:43:00.323 CET [30432] LOG:  shutting down
+2022-03-25 05:43:00.324 CET [30432] LOG:  checkpoint starting: shutdown immediate
+2022-03-25 05:43:00.343 CET [30432] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.001 s, total=0.021 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-25 05:43:00.413 CET [30431] LOG:  database system is shut down
+2022-03-25 05:43:00.438 CET [30477] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-25 05:43:00.440 CET [30477] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-25 05:43:00.440 CET [30477] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-25 05:43:00.441 CET [30477] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-25 05:43:00.446 CET [30480] LOG:  database system was shut down at 2022-03-25 05:43:00 CET
+2022-03-25 05:43:00.449 CET [30477] LOG:  database system is ready to accept connections
+2022-03-25 05:43:01.091 CET [30477] LOG:  received fast shutdown request
+2022-03-25 05:43:01.091 CET [30477] LOG:  aborting any active transactions
+2022-03-25 05:43:01.092 CET [30477] LOG:  background worker "logical replication launcher" (PID 30484) exited with exit code 1
+2022-03-25 05:43:01.092 CET [30478] LOG:  shutting down
+2022-03-25 05:43:01.093 CET [30478] LOG:  checkpoint starting: shutdown immediate
+2022-03-25 05:43:01.118 CET [30478] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.001 s, total=0.027 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-25 05:43:01.123 CET [30477] LOG:  database system is shut down
+2022-03-25 05:43:01.208 CET [30494] LOG:  starting PostgreSQL 15devel on x86_64-pc-linux-gnu, compiled by gcc (Gentoo 9.2.0-r2 p3) 9.2.0, 64-bit
+2022-03-25 05:43:01.210 CET [30494] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-25 05:43:01.210 CET [30494] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-25 05:43:01.212 CET [30494] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-25 05:43:01.217 CET [30497] LOG:  database system was shut down at 2022-03-25 05:43:01 CET
+2022-03-25 05:43:01.221 CET [30494] LOG:  database system is ready to accept connections
+2022-03-25 05:43:06.083 CET [30494] LOG:  received fast shutdown request
+2022-03-25 05:43:06.083 CET [30494] LOG:  aborting any active transactions
+2022-03-25 05:43:06.083 CET [30494] LOG:  background worker "logical replication launcher" (PID 30501) exited with exit code 1
+2022-03-25 05:43:06.084 CET [30495] LOG:  shutting down
+2022-03-25 05:43:06.084 CET [30495] LOG:  checkpoint starting: shutdown immediate
+2022-03-25 05:43:06.110 CET [30495] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.006 s, sync=0.002 s, total=0.027 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2022-03-25 05:43:06.122 CET [30494] LOG:  database system is shut down
