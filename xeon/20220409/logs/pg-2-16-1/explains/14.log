@@ -1,0 +1,15 @@
+                                                       QUERY PLAN                                                       
+------------------------------------------------------------------------------------------------------------------------
+ Limit
+   ->  Aggregate
+         ->  Merge Join
+               Merge Cond: (part.p_partkey = lineitem.l_partkey)
+               ->  Index Scan using part_pkey on part
+               ->  Sort
+                     Sort Key: lineitem.l_partkey
+                     ->  Bitmap Heap Scan on lineitem
+                           Recheck Cond: ((l_shipdate >= '1994-05-01'::date) AND (l_shipdate < '1994-06-01'::date))
+                           ->  Bitmap Index Scan on idx_lineitem_shipdate
+                                 Index Cond: ((l_shipdate >= '1994-05-01'::date) AND (l_shipdate < '1994-06-01'::date))
+(11 rows)
+
