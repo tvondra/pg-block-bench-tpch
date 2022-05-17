@@ -1,0 +1,18 @@
+                                                             QUERY PLAN                                                              
+-------------------------------------------------------------------------------------------------------------------------------------
+ Limit
+   InitPlan 1 (returns $0)
+     ->  Aggregate
+           ->  Seq Scan on customer customer_1
+                 Filter: ((c_acctbal > 0.00) AND (SUBSTRING(c_phone FROM 1 FOR 2) = ANY ('{21,29,26,34,14,15,17}'::text[])))
+   ->  Sort
+         Sort Key: (SUBSTRING(customer.c_phone FROM 1 FOR 2))
+         ->  HashAggregate
+               Group Key: SUBSTRING(customer.c_phone FROM 1 FOR 2)
+               ->  Nested Loop Anti Join
+                     ->  Seq Scan on customer
+                           Filter: ((c_acctbal > $0) AND (SUBSTRING(c_phone FROM 1 FOR 2) = ANY ('{21,29,26,34,14,15,17}'::text[])))
+                     ->  Index Only Scan using idx_orders_custkey on orders
+                           Index Cond: (o_custkey = customer.c_custkey)
+(14 rows)
+
