@@ -1,0 +1,14 @@
+                                                                                                                 QUERY PLAN                                                                                                                  
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit
+   ->  Sort
+         Sort Key: lineitem.l_shipmode
+         ->  HashAggregate
+               Group Key: lineitem.l_shipmode
+               ->  Nested Loop
+                     ->  Seq Scan on lineitem
+                           Filter: ((l_shipmode = ANY ('{SHIP,"REG AIR"}'::bpchar[])) AND (l_commitdate < l_receiptdate) AND (l_shipdate < l_commitdate) AND (l_receiptdate >= '1994-01-01'::date) AND (l_receiptdate < '1995-01-01'::date))
+                     ->  Index Scan using orders_pkey on orders
+                           Index Cond: (o_orderkey = lineitem.l_orderkey)
+(10 rows)
+
