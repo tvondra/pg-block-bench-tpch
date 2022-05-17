@@ -1,0 +1,26 @@
+                                                                 QUERY PLAN                                                                 
+--------------------------------------------------------------------------------------------------------------------------------------------
+ Limit
+   ->  Sort
+         Sort Key: (sum((lineitem.l_extendedprice * ('1'::numeric - lineitem.l_discount)))) DESC
+         ->  HashAggregate
+               Group Key: customer.c_custkey, nation.n_name
+               ->  Hash Join
+                     Hash Cond: (customer.c_custkey = orders.o_custkey)
+                     ->  Hash Join
+                           Hash Cond: (customer.c_nationkey = nation.n_nationkey)
+                           ->  Seq Scan on customer
+                           ->  Hash
+                                 ->  Seq Scan on nation
+                     ->  Hash
+                           ->  Hash Join
+                                 Hash Cond: (lineitem.l_orderkey = orders.o_orderkey)
+                                 ->  Seq Scan on lineitem
+                                       Filter: (l_returnflag = 'R'::bpchar)
+                                 ->  Hash
+                                       ->  Bitmap Heap Scan on orders
+                                             Recheck Cond: ((o_orderdate >= '1994-08-01'::date) AND (o_orderdate < '1994-11-01'::date))
+                                             ->  Bitmap Index Scan on idx_orders_orderdate
+                                                   Index Cond: ((o_orderdate >= '1994-08-01'::date) AND (o_orderdate < '1994-11-01'::date))
+(22 rows)
+

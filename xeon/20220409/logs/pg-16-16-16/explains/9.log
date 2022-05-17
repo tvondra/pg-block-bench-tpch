@@ -1,0 +1,31 @@
+                                                                  QUERY PLAN                                                                  
+----------------------------------------------------------------------------------------------------------------------------------------------
+ Limit
+   ->  Sort
+         Sort Key: nation.n_name, (EXTRACT(year FROM orders.o_orderdate)) DESC
+         ->  HashAggregate
+               Group Key: nation.n_name, EXTRACT(year FROM orders.o_orderdate)
+               ->  Hash Join
+                     Hash Cond: (supplier.s_nationkey = nation.n_nationkey)
+                     ->  Hash Join
+                           Hash Cond: (lineitem.l_orderkey = orders.o_orderkey)
+                           ->  Hash Join
+                                 Hash Cond: (lineitem.l_suppkey = supplier.s_suppkey)
+                                 ->  Hash Join
+                                       Hash Cond: ((lineitem.l_suppkey = partsupp.ps_suppkey) AND (lineitem.l_partkey = partsupp.ps_partkey))
+                                       ->  Hash Join
+                                             Hash Cond: (lineitem.l_partkey = part.p_partkey)
+                                             ->  Seq Scan on lineitem
+                                             ->  Hash
+                                                   ->  Seq Scan on part
+                                                         Filter: ((p_name)::text ~~ '%navy%'::text)
+                                       ->  Hash
+                                             ->  Seq Scan on partsupp
+                                 ->  Hash
+                                       ->  Seq Scan on supplier
+                           ->  Hash
+                                 ->  Seq Scan on orders
+                     ->  Hash
+                           ->  Seq Scan on nation
+(27 rows)
+
