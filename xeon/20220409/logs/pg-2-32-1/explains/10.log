@@ -1,0 +1,31 @@
+                                                                    QUERY PLAN                                                                    
+--------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit
+   ->  Sort
+         Sort Key: (sum((lineitem.l_extendedprice * ('1'::numeric - lineitem.l_discount)))) DESC
+         ->  GroupAggregate
+               Group Key: customer.c_custkey, nation.n_name
+               ->  Incremental Sort
+                     Sort Key: customer.c_custkey, nation.n_name
+                     Presorted Key: customer.c_custkey
+                     ->  Nested Loop
+                           ->  Nested Loop
+                                 ->  Merge Join
+                                       Merge Cond: (customer.c_custkey = orders.o_custkey)
+                                       ->  Index Scan using customer_pkey on customer
+                                       ->  Sort
+                                             Sort Key: orders.o_custkey
+                                             ->  Bitmap Heap Scan on orders
+                                                   Recheck Cond: ((o_orderdate >= '1994-08-01'::date) AND (o_orderdate < '1994-11-01'::date))
+                                                   ->  Bitmap Index Scan on idx_orders_orderdate
+                                                         Index Cond: ((o_orderdate >= '1994-08-01'::date) AND (o_orderdate < '1994-11-01'::date))
+                                 ->  Index Scan using idx_lineitem_orderkey on lineitem
+                                       Index Cond: (l_orderkey = orders.o_orderkey)
+                                       Filter: (l_returnflag = 'R'::bpchar)
+                           ->  Memoize
+                                 Cache Key: customer.c_nationkey
+                                 Cache Mode: logical
+                                 ->  Index Scan using nation_pkey on nation
+                                       Index Cond: (n_nationkey = customer.c_nationkey)
+(27 rows)
+
