@@ -1,0 +1,23 @@
+                                                                                         QUERY PLAN                                                                                         
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit
+   ->  Sort
+         Sort Key: (count(DISTINCT partsupp.ps_suppkey)) DESC, part.p_brand, part.p_type, part.p_size
+         ->  GroupAggregate
+               Group Key: part.p_brand, part.p_type, part.p_size
+               ->  Sort
+                     Sort Key: part.p_brand, part.p_type, part.p_size
+                     ->  Nested Loop
+                           ->  Index Only Scan using partsupp_pkey on partsupp
+                                 Filter: (NOT (hashed SubPlan 1))
+                                 SubPlan 1
+                                   ->  Seq Scan on supplier
+                                         Filter: ((s_comment)::text ~~ '%Customer%Complaints%'::text)
+                           ->  Memoize
+                                 Cache Key: partsupp.ps_partkey
+                                 Cache Mode: logical
+                                 ->  Index Scan using part_pkey on part
+                                       Index Cond: (p_partkey = partsupp.ps_partkey)
+                                       Filter: ((p_brand <> 'Brand#12'::bpchar) AND ((p_type)::text !~~ 'SMALL BRUSHED%'::text) AND (p_size = ANY ('{12,32,36,26,40,34,49,9}'::integer[])))
+(19 rows)
+
