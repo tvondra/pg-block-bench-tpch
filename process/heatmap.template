@@ -4,6 +4,8 @@ set output 'DATAFILE.eps'
 set palette defined (0 "web-green", 0.5 "white", 1 "red")
 
 set key off
+set xlabel "data block"
+set ylabel "WAL block"
 
 # set labels for x/y axis to block sizes"
 XTICS="1 2 4 8 16 32"

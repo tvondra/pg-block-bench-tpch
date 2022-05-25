@@ -20,6 +20,14 @@ psql $DBNAME -c "create extension tablefunc"
 
 for m in i5 xeon; do
 
+	if [ "$m" == "i5" ]; then
+		SIZE="10GB"
+		RAM="8GB"
+	else
+		SIZE='75GB';
+		RAM='32GB';
+	fi
+
 	for r in `ls $ROOTDIR/$m/`; do
 
 		d=`echo $r | sed 's/results-//'`
@@ -69,15 +77,19 @@ ORDER BY 1,2',
 ) AS ct(category text, " 1" text, " 2" text, " 4" text, " 8" text, "16" text, "32" text)
 EOF
 
-			sed "s/DATAFILE/$data-min/g" heatmap.template | sed "s/TITLE/$data (min)/" > $data-min.plot
-			sed "s/DATAFILE/$data-max/g" heatmap.template | sed "s/TITLE/$data (max)/" > $data-max.plot
-			sed "s/DATAFILE/$data-avg/g" heatmap.template | sed "s/TITLE/$data (avg)/" > $data-avg.plot
+			sed "s/DATAFILE/$data-min/g" heatmap.template | sed "s/TITLE/machine: $m  duration: min  size: $SIZE  RAM: $RAM/" > $data-min.plot
+			sed "s/DATAFILE/$data-max/g" heatmap.template | sed "s/TITLE/machine: $m  duration: max  size: $SIZE  RAM: $RAM/" > $data-max.plot
+			sed "s/DATAFILE/$data-avg/g" heatmap.template | sed "s/TITLE/machine: $m  duration: avg  size: $SIZE  RAM: $RAM/" > $data-avg.plot
 
 			gnuplot $data-min.plot
 			gnuplot $data-max.plot
 			gnuplot $data-avg.plot
 
-			mv *.plot *.eps *.data heatmaps/$m/$d/queries
+			for f in *.eps; do
+				convert -background white -alpha remove -alpha off -density 200 $f ${f/eps/png}
+			done
+
+			mv *.plot *.eps *.png *.data heatmaps/$m/$d/queries
 
 			for q in `seq 1 22`; do
 
@@ -131,17 +143,21 @@ ORDER BY 1,2',
 ) AS ct(category text, " 1" text, " 2" text, " 4" text, " 8" text, "16" text, "32" text)
 EOF
 
-				sed "s/DATAFILE/$data-min/g" heatmap.template | sed "s/TITLE/$data (min)/" > $data-min.plot
-				sed "s/DATAFILE/$data-max/g" heatmap.template | sed "s/TITLE/$data (max)/" > $data-max.plot
-				sed "s/DATAFILE/$data-avg/g" heatmap.template | sed "s/TITLE/$data (avg)/" > $data-avg.plot
-				sed "s/DATAFILE/$data-plan/g" heatmap-plans.template | sed "s/TITLE/$data (plan)/" > $data-plan.plot
+				sed "s/DATAFILE/$data-min/g" heatmap.template | sed "s/TITLE/query: $q  machine: $m  run: $d  (min duration)/" > $data-min.plot
+				sed "s/DATAFILE/$data-max/g" heatmap.template | sed "s/TITLE/query: $q  machine: $m  run: $d  (max duration)/" > $data-max.plot
+				sed "s/DATAFILE/$data-avg/g" heatmap.template | sed "s/TITLE/query: $q  machine: $m  run: $d  (avg duration)/" > $data-avg.plot
+				sed "s/DATAFILE/$data-plan/g" heatmap-plans.template | sed "s/TITLE/query: $q  machine: $m  run: $d  (query plans)/" > $data-plan.plot
 
 				gnuplot $data-min.plot
 				gnuplot $data-max.plot
 				gnuplot $data-avg.plot
 				gnuplot $data-plan.plot
 
-				mv *.plot *.eps *.data heatmaps/$m/$d/queries
+				for f in *.eps; do
+					convert -background white -alpha remove -alpha off -density 200 $f ${f/eps/png}
+				done
+
+				mv *.plot *.eps *.png *.data heatmaps/$m/$d/queries
 
 			done
 
@@ -161,7 +177,7 @@ ORDER BY 1,2',
 ) AS ct(category text, " 1" text, " 2" text, " 4" text, " 8" text, "16" text, "32" text)
 EOF
 
-			sed "s/DATAFILE/load-total-$wss-wal-segment/g" heatmap.template | sed "s/TITLE/machine: $m run: $d WAL: ${wss}MB (load)/" > load-total-$wss-wal-segment.plot
+			sed "s/DATAFILE/load-total-$wss-wal-segment/g" heatmap.template | sed "s/TITLE/machine: $m  run: $d/" > load-total-$wss-wal-segment.plot
 			gnuplot load-total-$wss-wal-segment.plot
 
 			for s in `psql -t -A $DBNAME -c "select distinct step_name FROM data_load WHERE run = '$d' AND machine = '$m' AND wal_segment = $wss"`; do
@@ -178,12 +194,16 @@ ORDER BY 1,2',
 ) AS ct(category text, " 1" text, " 2" text, " 4" text, " 8" text, "16" text, "32" text)
 EOF
 
-				sed "s/DATAFILE/load-$s-$wss-wal-segment/g" heatmap.template | sed "s/TITLE/machine: $m run: $d WAL: ${wss}MB ($s)/" > load-$s-$wss-wal-segment.plot
+				sed "s/DATAFILE/load-$s-$wss-wal-segment/g" heatmap.template | sed "s/TITLE/step: $s  machine: $m  run: $d/" > load-$s-$wss-wal-segment.plot
 				gnuplot load-$s-$wss-wal-segment.plot
 
 			done
 
-			mv *.plot *.eps *.data heatmaps/$m/$d/loads
+			for f in *.eps; do
+				convert -background white -alpha remove -alpha off -density 200 $f ${f/eps/png}
+			done
+
+			mv *.plot *.eps *.png *.data heatmaps/$m/$d/loads
 
 		done
 
@@ -225,7 +245,11 @@ EOF
 
 			done
 
-			mv *.plot *.eps *.data heatmaps/$m/$d/loads
+			for f in *.eps; do
+				convert -background white -alpha remove -alpha off -density 200 $f ${f/eps/png}
+			done
+
+			mv *.plot *.eps *.png *.data heatmaps/$m/$d/loads
 
 		done
 
